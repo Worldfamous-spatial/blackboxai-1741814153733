@@ -1,0 +1,87 @@
+<Application x:Class="CADTR.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+        <!-- Color Palette -->
+        <SolidColorBrush x:Key="PrimaryColor" Color="#2196F3"/>
+        <SolidColorBrush x:Key="PrimaryLightColor" Color="#64B5F6"/>
+        <SolidColorBrush x:Key="PrimaryDarkColor" Color="#1976D2"/>
+        <SolidColorBrush x:Key="AccentColor" Color="#FFC107"/>
+        <SolidColorBrush x:Key="TextPrimaryColor" Color="#212121"/>
+        <SolidColorBrush x:Key="TextSecondaryColor" Color="#757575"/>
+        <SolidColorBrush x:Key="DividerColor" Color="#BDBDBD"/>
+        <SolidColorBrush x:Key="BackgroundColor" Color="#F5F5F5"/>
+        <SolidColorBrush x:Key="SurfaceColor" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="ErrorColor" Color="#F44336"/>
+
+        <!-- Global Styles -->
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="15,8"/>
+            <Setter Property="Background" Value="{StaticResource PrimaryColor}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource PrimaryDarkColor}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="{StaticResource PrimaryDarkColor}"/>
+                                <Setter Property="Opacity" Value="0.8"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="{StaticResource DividerColor}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Padding" Value="8,6"/>
+            <Setter Property="Background" Value="{StaticResource SurfaceColor}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource DividerColor}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="{StaticResource SurfaceColor}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource DividerColor}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="GridLinesVisibility" Value="All"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource DividerColor}"/>
+            <Setter Property="VerticalGridLinesBrush" Value="{StaticResource DividerColor}"/>
+            <Setter Property="RowBackground" Value="{StaticResource SurfaceColor}"/>
+            <Setter Property="AlternatingRowBackground" Value="{StaticResource BackgroundColor}"/>
+        </Style>
+
+        <Style TargetType="TreeView">
+            <Setter Property="Background" Value="{StaticResource SurfaceColor}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource DividerColor}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </Application.Resources>
+</Application>
